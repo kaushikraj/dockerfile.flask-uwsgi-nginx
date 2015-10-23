@@ -1,5 +1,6 @@
 ## Forked from [https://github.com/ankitjamuar/dockerfile.flask-uwsgi-nginx](https://github.com/ankitjamuar/dockerfile.flask-uwsgi-nginx). 
 
+# changes from the original
 Using python:2.7 as base.
 Docker compilation is faster. Dockerfile is much cleaner.
 
