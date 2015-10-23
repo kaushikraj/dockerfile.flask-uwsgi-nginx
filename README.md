@@ -1,5 +1,8 @@
-## Just forked from [https://github.com/dockerfiles/django-uwsgi-nginx](https://github.com/dockerfiles/django-uwsgi-nginx), change Django to Flask.
+## Forked from [https://github.com/ankitjamuar/dockerfile.flask-uwsgi-nginx](https://github.com/ankitjamuar/dockerfile.flask-uwsgi-nginx). 
 
+# changes from the original
+Using python:2.7 as base.
+Docker compilation is faster. Dockerfile is much cleaner.
 
 # Flask, uWSGI and Nginx in a container
 
@@ -22,7 +25,10 @@ contribute patches.
 
 ### Build and run
 * docker build -t webapp .
-* docker run -d webapp
+* docker run -d -p 80:80 webapp
+
+### See the output
+* curl -X GET http://localhost/
 
 ### How to insert your application
 
