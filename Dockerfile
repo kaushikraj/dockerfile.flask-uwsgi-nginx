@@ -12,15 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from ubuntu:14.04
+from python:2.7
 
-maintainer Dockerfiles
+maintainer Kaushik Raj <kaushik.raj@gmail.com>
 
-#run echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
-run perl -p -i.orig -e 's/archive.ubuntu.com/mirrors.aliyun.com\/ubuntu/' /etc/apt/sources.list
 run apt-get update
-run apt-get install -y build-essential git
-run apt-get install -y python python-dev python-setuptools
 run apt-get install -y nginx supervisor
 run easy_install pip
 
@@ -42,12 +38,7 @@ run rm /etc/nginx/sites-enabled/default
 run ln -s /home/docker/code/nginx-app.conf /etc/nginx/sites-enabled/
 run ln -s /home/docker/code/supervisor-app.conf /etc/supervisor/conf.d/
 
-# run pip install
 run pip install -r /home/docker/code/app/requirements.txt
-
-# install django, normally you would remove this step because your project would already
-# be installed in the code/app/ directory
-#run django-admin.py startproject website /home/docker/code/app/ 
 
 expose 80
 cmd ["supervisord", "-n"]
